@@ -7,14 +7,13 @@ const rootRef = database.ref('/');
 /* WORKING WITH JSON INFORMATION */
 
 $(document).ready(function(){
-  datatablePropierties();
+  //datatablePropierties();
 });
 
 let jsonData = [];
 
 // se agrega el listener al botón remove
 function showData (){
-  $('#vendedoresTables').DataTable().destroy();
   
   let htmlTable = '';
 
@@ -24,11 +23,13 @@ function showData (){
       htmlTable += '<td class="text-truncate text-center">' + vendedor.infoResult.data[0].sale + '</td>';
       htmlTable += '<td class="text-truncate text-center">' + vendedor.infoResult.data[0].budget + '</td>';
       htmlTable += '<td class="text-truncate text-center">' + (vendedor.infoResult.data[0].sale - vendedor.infoResult.data[0].budget) + '</td>';
-      htmlTable += '<td class="text-truncate text-center">' + (vendedor.infoResult.data[0].sale / vendedor.infoResult.data[0].budget) + '</td>';
-      htmlTable += '<td class="text-truncate text-center"><i class="fas fa-paper-plane"></i></td>';
+      vendedor.infoResult.data[0].budget===0?htmlTable +='<td class="text-truncate text-center">No hay meta disponible</td>':htmlTable += '<td class="text-truncate text-center">' + Math.round((vendedor.infoResult.data[0].sale / vendedor.infoResult.data[0].budget)*100) + "%" + '</td>';
+      htmlTable += '<td class="text-truncate text-center"><button class="btn" id="btnPlaneID"><i class="fas fa-paper-plane"></i></button></td>';
       htmlTable += '</tr>';
   });    
   document.getElementById('vendedorTableBodyID').innerHTML = htmlTable;
+  $('#vendedoresTables').DataTable().destroy();
+  datatablePropierties();
   /* $('#vendedorTableBodyID').html = htmlTable; */
 }
 
