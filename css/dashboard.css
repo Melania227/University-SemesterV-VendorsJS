@@ -1,0 +1,19 @@
+.navbar{
+    background-color: #141414;
+}
+
+.navbar a{
+    font-size: 70px;
+    color: #1DB954;
+    font-weight: bold;
+}
+
+.navbar i{
+    font-size: 110px;
+    color: #1DB954;
+    margin-right: 10px;
+}
+
+.navbar a:hover{
+    color: #1DB954;
+}
