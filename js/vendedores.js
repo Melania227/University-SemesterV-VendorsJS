@@ -25,7 +25,7 @@ function showData (){
       htmlTable += '<td class="text-truncate text-center">₡' + vendedor.infoResult.data[0].budget + '</td>';
       htmlTable += '<td class="text-truncate text-center">' + ((vendedor.infoResult.data[0].sale - vendedor.infoResult.data[0].budget)<0?("-₡"+-(vendedor.infoResult.data[0].sale - vendedor.infoResult.data[0].budget)):("₡"+(vendedor.infoResult.data[0].sale - vendedor.infoResult.data[0].budget))) + '</td>';
       htmlTable += porcentajeCumplimiento(vendedor.infoResult.data[0].sale, vendedor.infoResult.data[0].budget);
-      htmlTable += '<td class="text-truncate text-center"><button class="btn" id="btnPlaneID"><i class="fas fa-paper-plane"></i></button></td>';
+      htmlTable += '<td class="text-truncate text-center"><button class="btn" id="btnPlaneID" onClick="dashboard('+ idNum +')"><i class="fas fa-paper-plane"></i></button></td>';
       htmlTable += '</tr>';
       idNum+=1;
     });    
@@ -69,14 +69,19 @@ function porcentajeCumplimiento(venta, meta){
   }
   else{
     let porcentaje = Math.round((venta / meta)*100);
-    if(porcentaje>=40){
+    if(porcentaje>=100){
       return '<td class="text-truncate text-center"><span class="badge" style="background-color:#1DB954">' + porcentaje +'%</span></td>'
     }
-    else if(porcentaje>=30){
+    else if(porcentaje>=80){
       return '<td class="text-truncate text-center"><span class="badge" style="background-color:yellow; color:black">' + porcentaje +'%</span></td>'
     }
     return '<td class="text-truncate text-center"><span class="badge" style="background-color:red">' + porcentaje +'%</span></td>'
   }
+}
+
+function dashboard(id){
+  localStorage.setItem('idUser', id);
+  window.document.location = './dashboard.html';
 }
 
 
