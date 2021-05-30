@@ -7,38 +7,38 @@ const rootRef = database.ref('/');
 /* WORKING WITH JSON INFORMATION */
 
 $(document).ready(function(){
-  //datatablePropierties();
+  getData();
 });
 
 
 /* ---------------------------------------------------------- PROMESA ------------------------------------------------------------- */
-function getRandomPromise(max=10, expected=5, delay=1000){
+function getDataPromise(){
 	return new Promise((resolve, reject)=>{
-	
-		const number = Math.floor(Math.random()*10);
 
-		//setTimeout(function, ms); Es un sleep
-		setTimeout(
-			()=>{number>5?resolve(number):reject(new Error("Menor que "+expected))},
-			1000
-		);
-	});
-}
-
-getRandomPromise(20,10,1000)
-.then(numero => {
-	console.log("Promesa con exito, retorna: "+numero)
-})
-.catch(error=>{console.log(error)});
-
-let jsonData = [];
-
-function getData (){
-  rootRef.on('value',(snap)=>{
-    jsonData = snap.val();
-    console.log(jsonData);
+    rootRef.on('value',(snap)=>{
+      resolve (snap.val());
+    });
+        
   });
 }
+
+let jsonData = [];
+async function getData(){
+  await getDataPromise()
+  .then(
+        json=>{
+          jsonData=json;
+          showData ();
+        }
+  )
+  .catch(error=>{console.log(error)});
+}
+
+/* function getData (){
+  rootRef.on('value',(snap)=>{
+    jsonData = snap.val();
+  });
+} */
 
 
 function showData (){
