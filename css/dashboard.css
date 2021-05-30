@@ -1,0 +1,74 @@
+.navbar{
+    background-color: #141414;
+}
+
+.navbar a{
+    font-size: 70px;
+    color: #41B3A3;
+    font-weight: bold;
+}
+
+.navbar i{
+    font-size: 110px;
+    color: #41B3A3;
+    margin-right: 10px;
+}
+
+.navbar a:hover{
+    color: #41B3A3;
+}
+
+.card{
+    margin: 10px;
+}
+
+.dataAboveGraph h5{
+    padding-left:0;
+}
+
+.actualMoneyData{
+    display: inline-flex;
+}
+
+.actualMoneyData p{
+    padding-right: 20px;
+}
+
+#pedidosBody{
+    font-size: 50px;
+    display: inline-flex;
+}
+
+#cotizacionesBody{
+    font-size: 50px;
+    display: inline-flex;
+}
+
+#pedidosBody p{
+    font-size: 20px;
+}
+
+#cotizacionesBody p{
+    font-size: 20px;
+}
+
+#pedidosIcon i{
+    color: #C38D9E;
+}
+
+#cotizacionesIcon i{
+    color: #E27D60;
+}
+
+.col h6{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+#ventaAnualID p{
+    font-size: 22px;
+}
+
+#metaAnualID p{
+    font-size: 12px;
+}
