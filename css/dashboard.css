@@ -4,16 +4,52 @@
 
 .navbar a{
     font-size: 70px;
-    color: #1DB954;
+    color: #41B3A3;
     font-weight: bold;
 }
 
 .navbar i{
     font-size: 110px;
-    color: #1DB954;
+    color: #41B3A3;
     margin-right: 10px;
 }
 
 .navbar a:hover{
-    color: #1DB954;
+    color: #41B3A3;
+}
+
+.card-header{
+    background-color: white;
+}
+
+.dataAboveGraph h5{
+    padding-left:0;
+}
+
+.actualMoneyData{
+    display: inline-flex;
+}
+
+.actualMoneyData p{
+    padding-right: 20px;
+}
+
+#pedidosBody{
+    font-size: 50px;
+    display: inline-flex;
+}
+
+#cotizacionesBody{
+    font-size: 50px;
+    display: inline-flex;
+}
+
+#pedidosBody p{
+    font-size: 20px;
+    margin-top: auto;
+}
+
+#cotizacionesBody p{
+    font-size: 20px;
+    margin-top: auto;
 }
