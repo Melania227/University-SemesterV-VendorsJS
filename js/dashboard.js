@@ -281,7 +281,7 @@ function getRightDataForRadial(userInfo){
   let actualSale = userInfo.infoResult.data[0].sale;
   let futurePercentageMonth = 100-advancePercentageMonth;
   let futureSaleInMonth = (futurePercentageMonth*actualSale)/advancePercentageMonth;
-  let resultantePercentage = (futureSaleInMonth*100)/userInfo.infoResult.data[0].budget;
+  let resultantePercentage = userInfo.infoResult.data[0].budget===0?0:((futureSaleInMonth+actualSale)*100)/userInfo.infoResult.data[0].budget;
   document.getElementById('poyectadoTitleID').innerHTML = '<p>' + newFormat.format(futureSaleInMonth) + '</p>';
   return resultantePercentage;
 }
