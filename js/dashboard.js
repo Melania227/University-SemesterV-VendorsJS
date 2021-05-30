@@ -7,19 +7,42 @@ const rootRef = database.ref('/');
 /* WORKING WITH JSON INFORMATION */
 
 $(document).ready(function(){
-  //datatablePropierties();
+  getData();
 });
 
-function getData (){
+
+/* ---------------------------------------------------------- PROMESA ------------------------------------------------------------- */
+function getDataPromise(){
+	return new Promise((resolve, reject)=>{
+
+    rootRef.on('value',(snap)=>{
+      resolve (snap.val());
+    });
+        
+  });
+}
+
+let jsonData = [];
+async function getData(){
+  await getDataPromise()
+  .then(
+        json=>{
+          jsonData=json;
+          showData ();
+        }
+  )
+  .catch(error=>{console.log(error)});
+}
+
+/* function getData (){
     rootRef.on('value',(snap)=>{
       jsonData = snap.val();
       console.log(jsonData);
     });
   }
+*/
 
-let jsonData = [];
 
-// se agrega el listener al botón remove
 function showData (){
     let idGuardadoEnLocal = localStorage.getItem("idUser");
     let dataUser = jsonData[idGuardadoEnLocal];
