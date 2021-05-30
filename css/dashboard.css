@@ -94,7 +94,11 @@
 }
 
 #metaAnualID p{
-    font-size: 12px;
+    font-size: 14px;
+}
+
+#devolucionesPorcentajeID p{
+    font-size: 14px;
 }
 
 #devolucionesBodyID{

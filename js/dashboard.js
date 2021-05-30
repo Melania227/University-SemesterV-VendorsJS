@@ -224,11 +224,13 @@ function displayAcumuladoAnual(userInfo){
 function displayVentasVSDevoluciones(userInfo){
   let facturado = userInfo.infoResult.data[0].invoices;
   let devoluciones = userInfo.infoResult.data[0].creditNotes;
+  let porcentaje = (devoluciones/facturado).toFixed(4);
   let strHTMLFacturado = '<h6>Facturación</h6> <p>'+ newFormat.format(facturado) + '</p>';
-  let strHTMLDevoluciones = '<h6>Devoluciones</h6> <p>'+ newFormat.format(devoluciones) + '</p>';
+  let strHTMLDevoluciones = '<p>'+ newFormat.format(devoluciones) + '</p>';
+  let strHTMLDevolucionesPercentage = porcentaje>0?'<p>%'+ porcentaje + '</p>':'<p>-%'+ -porcentaje + '</p>';
   document.getElementById('facturacionBodyID').innerHTML=strHTMLFacturado;
-  document.getElementById('devolucionesBodyID').innerHTML=strHTMLDevoluciones;
-
+  document.getElementById('devolucionesID').innerHTML=strHTMLDevoluciones;
+  document.getElementById('devolucionesPorcentajeID').innerHTML=strHTMLDevolucionesPercentage;
 }
 
 /*--------------------------------------- DISPLAY VENDOR NAME ---------------------------------------*/
@@ -252,8 +254,6 @@ function getRightDataForBars(userInfo){
   result.push(salesEachWeek);
   result.push(salesEachWeekPastYear);
   result.push(salesEachWeekPastMonth);
-  console.log(weeksWeight);
-  console.log(result);
   return result;
 }
 
