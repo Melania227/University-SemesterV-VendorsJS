@@ -22,8 +22,8 @@ let jsonData = [];
 // se agrega el listener al botón remove
 function showData (){
     let idGuardadoEnLocal = localStorage.getItem("idUser");
-    //let dataUser = jsonData[idGuardadoEnLocal];
-    let dataUser = jsonData[0];
+    let dataUser = jsonData[idGuardadoEnLocal];
+    //let dataUser = jsonData[0];
     
     displayBarGraphic(dataUser);
     displayRadialGraphicCumplimiento(dataUser);

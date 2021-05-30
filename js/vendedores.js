@@ -21,9 +21,9 @@ function showData (){
   jsonData.forEach(vendedor => {
       htmlTable += '<tr vendedorID = "' + idNum + '">';
       htmlTable += '<td class="text-truncate text-center">' + vendedor.infoResult.data[0].slpName + '</td>';
-      htmlTable += '<td class="text-truncate text-center">₡' + vendedor.infoResult.data[0].sale + '</td>';
-      htmlTable += '<td class="text-truncate text-center">₡' + vendedor.infoResult.data[0].budget + '</td>';
-      htmlTable += '<td class="text-truncate text-center">' + ((vendedor.infoResult.data[0].sale - vendedor.infoResult.data[0].budget)<0?("-₡"+-(vendedor.infoResult.data[0].sale - vendedor.infoResult.data[0].budget)):("₡"+(vendedor.infoResult.data[0].sale - vendedor.infoResult.data[0].budget))) + '</td>';
+      htmlTable += '<td class="text-truncate text-center">' + newFormat.format(vendedor.infoResult.data[0].sale) + '</td>';
+      htmlTable += '<td class="text-truncate text-center">' + newFormat.format(vendedor.infoResult.data[0].budget) + '</td>';
+      htmlTable += '<td class="text-truncate text-center">' + ((vendedor.infoResult.data[0].sale - vendedor.infoResult.data[0].budget)<0?(newFormat.format(vendedor.infoResult.data[0].sale - vendedor.infoResult.data[0].budget)):(newFormat.format(vendedor.infoResult.data[0].sale - vendedor.infoResult.data[0].budget))) + '</td>';
       htmlTable += porcentajeCumplimiento(vendedor.infoResult.data[0].sale, vendedor.infoResult.data[0].budget);
       htmlTable += '<td class="text-truncate text-center"><button class="btn" id="btnPlaneID" onClick="dashboard('+ idNum +')"><i class="fas fa-paper-plane"></i></button></td>';
       htmlTable += '</tr>';
@@ -68,7 +68,7 @@ function porcentajeCumplimiento(venta, meta){
     return '<td class="text-truncate text-center">No hay meta disponible</td>';
   }
   else{
-    let porcentaje = Math.round((venta / meta)*100);
+    let porcentaje = ((venta / meta)*100).toFixed(1);
     if(porcentaje>=100){
       return '<td class="text-truncate text-center"><span class="badge" style="background-color:#1DB954">' + porcentaje +'%</span></td>'
     }
@@ -84,5 +84,9 @@ function dashboard(id){
   window.document.location = './dashboard.html';
 }
 
-
+const newFormat = new Intl.NumberFormat('es-CR', {
+  style: 'currency',
+  currency: 'CRC',
+  minimumFractionDigits: 0
+})
 
