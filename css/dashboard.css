@@ -18,6 +18,10 @@
     color: #41B3A3;
 }
 
+.navbar-brand{
+    padding-left: 12px;
+}
+
 .card{
     margin: 10px;
 }
@@ -71,4 +75,33 @@
 
 #metaAnualID p{
     font-size: 12px;
+}
+
+#vendorName{
+    padding: 0px;
+}
+
+#vendorName p{
+    text-transform: capitalize;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    margin-bottom: 0px;
+    display: inline;
+    padding-right: 5px;
+}
+
+#vendorNameCard{
+    border: 0px;
+    margin: 0px;
+    padding: 0px;
+    background-color: #141414;
+}
+
+#vendorNameCard i{
+    font-size: 20px;
+}
+
+nav .container-fluid{
+    text-align: right;
 }

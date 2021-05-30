@@ -25,6 +25,7 @@ function showData (){
     let dataUser = jsonData[idGuardadoEnLocal];
     //let dataUser = jsonData[0];
     
+    displayVendorName(dataUser.infoResult.data[0].slpName);
     displayBarGraphic(dataUser);
     displayRadialGraphicCumplimiento(dataUser);
     displayRadialGraphicProyectado(dataUser);
@@ -203,6 +204,13 @@ function displayVentasVSDevoluciones(userInfo){
   document.getElementById('facturacionBodyID').innerHTML=strHTMLFacturado;
   document.getElementById('devolucionesBodyID').innerHTML=strHTMLDevoluciones;
 
+}
+
+/*--------------------------------------- DISPLAY VENDOR NAME ---------------------------------------*/
+function displayVendorName(vendorName){
+  vendorName=vendorName.toLowerCase();
+  strHTML='<p>'+ vendorName +'</p> <i class="fas fa-user"></i>';
+  document.getElementById('vendorName').innerHTML=strHTML;
 }
 
 
