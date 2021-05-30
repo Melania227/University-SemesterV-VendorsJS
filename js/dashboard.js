@@ -22,8 +22,8 @@ let jsonData = [];
 // se agrega el listener al botón remove
 function showData (){
     let idGuardadoEnLocal = localStorage.getItem("idUser");
-    //let dataUser = jsonData[idGuardadoEnLocal];
-    let dataUser = jsonData[0];
+    let dataUser = jsonData[idGuardadoEnLocal];
+    //let dataUser = jsonData[0];
     
     displayBarGraphic(dataUser);
     displayRadialGraphicCumplimiento(dataUser);
@@ -281,7 +281,7 @@ function getRightDataForRadial(userInfo){
   let actualSale = userInfo.infoResult.data[0].sale;
   let futurePercentageMonth = 100-advancePercentageMonth;
   let futureSaleInMonth = (futurePercentageMonth*actualSale)/advancePercentageMonth;
-  let resultantePercentage = (futureSaleInMonth*100)/userInfo.infoResult.data[0].budget;
+  let resultantePercentage = userInfo.infoResult.data[0].budget===0?0:((futureSaleInMonth+actualSale)*100)/userInfo.infoResult.data[0].budget;
   document.getElementById('poyectadoTitleID').innerHTML = '<p>' + newFormat.format(futureSaleInMonth) + '</p>';
   return resultantePercentage;
 }
