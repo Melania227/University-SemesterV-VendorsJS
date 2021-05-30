@@ -29,7 +29,8 @@ function showData (){
     displayRadialGraphicCumplimiento(dataUser);
     displayRadialGraphicProyectado(dataUser);
     displayPedidosAndCotizaciones(dataUser);
-    //document.getElementById('prueba').innerHTML = idGuardadoEnLocal;
+    displayAcumuladoAnual(dataUser);
+    displayVentasVSDevoluciones(dataUser);
 }
 
 /* --------------------------------------- BAR GRAPHIC ------------------------------------ */
@@ -178,6 +179,32 @@ function displayPedidosAndCotizaciones(userInfo){
   document.getElementById('pedidosID').innerHTML=strHTMLSales;
   document.getElementById('cotizacionesID').innerHTML=strHTMLQuotations;
 }
+
+/*--------------------------------------- DISPLAY ACUMULADO ANUAL ---------------------------------------*/
+function displayAcumuladoAnual(userInfo){
+  let yearSale = userInfo.infoResult.data[0].yearSale;
+  let yearMeta = userInfo.infoResult.data[0].yearBudget;
+  let percentageYear = yearMeta===0?0:((yearSale*100)/yearMeta).toFixed(1);
+  let strHTMLVenta = '<p>'+ newFormat.format(yearSale) + '</p>';
+  let strHTMLMeta = '<p>'+ newFormat.format(yearMeta) + '</p>';
+  let strHTMLPercentage = '<p>'+ percentageYear + '%</p>';
+  document.getElementById('ventaAnualID').innerHTML=strHTMLVenta;
+  document.getElementById('metaAnualID').innerHTML=strHTMLMeta;
+  document.getElementById('percentageAnualID').innerHTML=strHTMLPercentage;
+
+}
+
+/*--------------------------------------- DISPLAY VENTAS VS DEVOLUCIONES ---------------------------------------*/
+function displayVentasVSDevoluciones(userInfo){
+  let facturado = userInfo.infoResult.data[0].invoices;
+  let devoluciones = userInfo.infoResult.data[0].creditNotes;
+  let strHTMLFacturado = '<h6>Facturación</h6> <p>'+ newFormat.format(facturado) + '</p>';
+  let strHTMLDevoluciones = '<h6>Devoluciones</h6> <p>'+ newFormat.format(devoluciones) + '</p>';
+  document.getElementById('facturacionBodyID').innerHTML=strHTMLFacturado;
+  document.getElementById('devolucionesBodyID').innerHTML=strHTMLDevoluciones;
+
+}
+
 
 /*---------------------------- CALCULOS PARA EL GRAFICO DE BARRAS --------------------------------*/
 

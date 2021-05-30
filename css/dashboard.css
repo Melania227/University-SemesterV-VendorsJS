@@ -18,8 +18,8 @@
     color: #41B3A3;
 }
 
-.card-header{
-    background-color: white;
+.card{
+    margin: 10px;
 }
 
 .dataAboveGraph h5{
@@ -46,10 +46,29 @@
 
 #pedidosBody p{
     font-size: 20px;
-    margin-top: auto;
 }
 
 #cotizacionesBody p{
     font-size: 20px;
-    margin-top: auto;
+}
+
+#pedidosIcon i{
+    color: #C38D9E;
+}
+
+#cotizacionesIcon i{
+    color: #E27D60;
+}
+
+.col h6{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+#ventaAnualID p{
+    font-size: 22px;
+}
+
+#metaAnualID p{
+    font-size: 12px;
 }
