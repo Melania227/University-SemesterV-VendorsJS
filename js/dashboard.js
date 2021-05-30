@@ -79,12 +79,12 @@ function displayBarGraphic(infoUser){
       categories: ['Semana 1', 'Semana 2', 'Semana 3', 'Semana 4', 'Semana 5', 'Semana 6'],
     },
     yaxis: {
-      title: {
-        text: '₡ Millones'
-      },
-      min: 0,
-      max: 80,
-      tickAmount: 8
+      show : true,
+      labels: {
+        formatter: function(value){
+          return formatMillions(value);
+        }
+      }
     },
     fill: {
       opacity: 1,
@@ -95,9 +95,11 @@ function displayBarGraphic(infoUser){
     },
     colors:['#E27D60', '#85DCB0','#E8A87C','#C38D9E'],
     tooltip: {
+      shared: true,
+      intersect: false,
       y: {
-        formatter: function (val) {
-          return val===1?"₡ " + val + " millón":"₡ " + val + " millones";
+        formatter : function(value){
+          return newFormat.format(value);
         }
       }
     }
@@ -247,7 +249,7 @@ function getWeekWeights(userInfo){
 function getMetasPerWeek(userInfo, weights){
   let metasResult = [];
   for (let i = 0; i < weights.length; i++) {
-    metasResult.push(((userInfo.infoResult.data[0].budget*weights[i])/1000000).toFixed(1));
+    metasResult.push(userInfo.infoResult.data[0].budget*weights[i]);
   }
   return metasResult;
 }
@@ -259,7 +261,7 @@ function getSalesPerWeek(userInfo){
     for (let j = 0; j <= i; j++) {
       weekSaleSum+=userInfo.weekResult.data[j].sale;
     }
-    salesResult.push((weekSaleSum/1000000).toFixed(1));
+    salesResult.push(weekSaleSum);
   }
   return salesResult;
 }
@@ -268,7 +270,7 @@ function getSalesPerWeekPastYear(userInfo, weights){
   let salesResult = [];
   let lastYearTotalSale = userInfo.infoResult.data[0].pastYearSale;
   for (let i = 0; i < weights.length; i++) {
-    salesResult.push(((lastYearTotalSale*weights[i])/1000000).toFixed(1));
+    salesResult.push(lastYearTotalSale*weights[i]);
   }
   return salesResult;
 }
@@ -277,9 +279,13 @@ function getSalesPerWeekPastMonth(userInfo, weights){
   let salesResult = [];
   let lastYearTotalSale = userInfo.infoResult.data[0].pastMonthSale;
   for (let i = 0; i < weights.length; i++) {
-    salesResult.push(((lastYearTotalSale*weights[i])/1000000).toFixed(1));
+    salesResult.push(lastYearTotalSale*weights[i]);
   }
   return salesResult;
+}
+
+function formatMillions(num){
+  return ((num / 1000000).toFixed(0) + "M");
 }
 
 /*---------------------------- CALCULOS PARA EL GRAFICO RADIAL --------------------------------*/

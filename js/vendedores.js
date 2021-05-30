@@ -10,9 +10,37 @@ $(document).ready(function(){
   //datatablePropierties();
 });
 
+
+/* ---------------------------------------------------------- PROMESA ------------------------------------------------------------- */
+function getRandomPromise(max=10, expected=5, delay=1000){
+	return new Promise((resolve, reject)=>{
+	
+		const number = Math.floor(Math.random()*10);
+
+		//setTimeout(function, ms); Es un sleep
+		setTimeout(
+			()=>{number>5?resolve(number):reject(new Error("Menor que "+expected))},
+			1000
+		);
+	});
+}
+
+getRandomPromise(20,10,1000)
+.then(numero => {
+	console.log("Promesa con exito, retorna: "+numero)
+})
+.catch(error=>{console.log(error)});
+
 let jsonData = [];
 
-// se agrega el listener al botón remove
+function getData (){
+  rootRef.on('value',(snap)=>{
+    jsonData = snap.val();
+    console.log(jsonData);
+  });
+}
+
+
 function showData (){
   
   let htmlTable = '';
@@ -35,12 +63,6 @@ function showData (){
   /* $('#vendedorTableBodyID').html = htmlTable; */
 }
 
-function getData (){
-  rootRef.on('value',(snap)=>{
-    jsonData = snap.val();
-    console.log(jsonData);
-  });
-}
 
 function datatablePropierties(){
   $('#vendedorTableID').DataTable({
