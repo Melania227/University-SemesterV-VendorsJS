@@ -18,6 +18,10 @@
     color: #41B3A3;
 }
 
+.navbar-brand{
+    padding-left: 12px;
+}
+
 .card{
     margin: 10px;
 }
@@ -43,6 +47,26 @@
     font-size: 50px;
     display: inline-flex;
 }
+
+#acumuladoBody{
+    border-right: 4px;
+    display: inline-flex;
+}
+
+#acumuladoBody p{
+    font-size: 20px;
+}
+
+#acumuladoBody #acumuladoBodyCol{
+    border-right-style: solid;
+    border-right-width: 1px;
+}
+
+#facturacionBodyID{
+    border-right-style: solid;
+    border-right-width: 1px;
+}
+
 
 #pedidosBody p{
     font-size: 20px;
@@ -71,4 +95,41 @@
 
 #metaAnualID p{
     font-size: 12px;
+}
+
+#devolucionesBodyID{
+    color: #41B3A3;
+}
+
+#cumplimientoBodyID{
+    color: #41B3A3;
+}
+
+#vendorName{
+    padding: 0px;
+}
+
+#vendorName p{
+    text-transform: capitalize;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    margin-bottom: 0px;
+    display: inline;
+    padding-right: 5px;
+}
+
+#vendorNameCard{
+    border: 0px;
+    margin: 0px;
+    padding: 0px;
+    background-color: #141414;
+}
+
+#vendorNameCard i{
+    font-size: 20px;
+}
+
+nav .container-fluid{
+    text-align: right;
 }

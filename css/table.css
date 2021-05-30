@@ -4,18 +4,18 @@
 
 .navbar a{
     font-size: 70px;
-    color: #1DB954;
+    color: #41B3A3;
     font-weight: bold;
 }
 
 .navbar i{
     font-size: 110px;
-    color: #1DB954;
+    color: #41B3A3;
     margin-right: 10px;
 }
 
 .navbar a:hover{
-    color: #1DB954;
+    color: #41B3A3;
 }
 
 #btnPlaneID{
