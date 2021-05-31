@@ -151,7 +151,7 @@ function displayActualMoney(infoUser){
 
 /*----------------------------------- RADIAL GRAPHIC -----------------------------------------*/
 function displayRadialGraphicCumplimiento(userInfo){
-  let percentageNum = userInfo.infoResult.data[0].budget===0?0:((userInfo.infoResult.data[0].sale / userInfo.infoResult.data[0].budget)*100).toFixed(1);
+  let percentageNum = userInfo.infoResult.data[0].budget===0?0:((userInfo.infoResult.data[0].sale / userInfo.infoResult.data[0].budget)*100).toFixed(2);
   var options = {
     series: [percentageNum],
     chart: {
@@ -174,9 +174,9 @@ function displayRadialGraphicCumplimiento(userInfo){
 }
 
 function displayRadialGraphicProyectado(userInfo){
-  let percentageNum = (getRightDataForRadial(userInfo)).toFixed(1);
+  let data = getRightDataForRadial(userInfo);
   var options = {
-    series: [percentageNum],
+    series: [data[0].toFixed(2)],
     chart: {
     height: 350,
     type: 'radialBar'
@@ -189,7 +189,7 @@ function displayRadialGraphicProyectado(userInfo){
     },
     },
     colors:['#E8A87C'],
-    labels: ['Proyectado'],
+    labels: [newFormat.format(data[1])],
     };
     
     var chart = new ApexCharts(document.querySelector("#cicularGraphic2"), options);
@@ -210,7 +210,7 @@ function displayPedidosAndCotizaciones(userInfo){
 function displayAcumuladoAnual(userInfo){
   let yearSale = userInfo.infoResult.data[0].yearSale;
   let yearMeta = userInfo.infoResult.data[0].yearBudget;
-  let percentageYear = yearMeta===0?0:((yearSale*100)/yearMeta).toFixed(1);
+  let percentageYear = yearMeta===0?0:((yearSale*100)/yearMeta).toFixed(2);
   let strHTMLVenta = '<p>'+ newFormat.format(yearSale) + '</p>';
   let strHTMLMeta = '<p>'+ newFormat.format(yearMeta) + '</p>';
   let strHTMLPercentage = '<p>'+ percentageYear + '%</p>';
@@ -224,7 +224,7 @@ function displayAcumuladoAnual(userInfo){
 function displayVentasVSDevoluciones(userInfo){
   let facturado = userInfo.infoResult.data[0].invoices;
   let devoluciones = userInfo.infoResult.data[0].creditNotes;
-  let porcentaje = (devoluciones/facturado).toFixed(4);
+  let porcentaje = ((devoluciones/facturado*100)).toFixed(2);
   let strHTMLFacturado = '<h6>Facturación</h6> <p>'+ newFormat.format(facturado) + '</p>';
   let strHTMLDevoluciones = '<p>'+ newFormat.format(devoluciones) + '</p>';
   let strHTMLDevolucionesPercentage = porcentaje>0?'<p>%'+ porcentaje + '</p>':'<p>-%'+ -porcentaje + '</p>';
@@ -319,6 +319,5 @@ function getRightDataForRadial(userInfo){
   let futurePercentageMonth = 100-advancePercentageMonth;
   let futureSaleInMonth = (futurePercentageMonth*actualSale)/advancePercentageMonth;
   let resultantePercentage = userInfo.infoResult.data[0].budget===0?0:((futureSaleInMonth+actualSale)*100)/userInfo.infoResult.data[0].budget;
-  document.getElementById('poyectadoTitleID').innerHTML = '<p>' + newFormat.format(futureSaleInMonth) + '</p>';
-  return resultantePercentage;
+  return [resultantePercentage, (futureSaleInMonth+actualSale)];
 }
