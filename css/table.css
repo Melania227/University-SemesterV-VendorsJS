@@ -1,0 +1,29 @@
+.navbar{
+    background-color: #141414;
+}
+
+.navbar a{
+    font-size: 40px;
+    color: #41B3A3;
+    font-weight: bold;
+}
+
+.navbar i{
+    font-size: 60px;
+    color: #41B3A3;
+}
+
+.navbar a:hover{
+    color: #41B3A3;
+}
+
+#btnPlaneID{
+    border: 2px solid #1DB954;
+    background-color: white;
+    color: #1DB954;
+}
+
+#btnPlaneID:hover{
+    background-color: #1DB954;
+    color: white;
+}

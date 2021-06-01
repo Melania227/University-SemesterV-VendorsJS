@@ -1,0 +1,140 @@
+.navbar{
+    background-color: #141414;
+}
+
+.navbar a{
+    font-size: 40px;
+    color: #41B3A3;
+    font-weight: bold;
+}
+
+.navbar i{
+    font-size: 60px;
+    color: #41B3A3;
+}
+
+.navbar a:hover{
+    color: #41B3A3;
+}
+
+/* .navbar-brand{
+    padding-left: 10px;
+} */
+
+.card{
+    margin: 10px;
+}
+
+.dataAboveGraph h5{
+    padding-left:0;
+}
+
+.actualMoneyData{
+    display: inline-flex;
+}
+
+.actualMoneyData p{
+    padding-right: 20px;
+}
+
+#pedidosBody{
+    font-size: 50px;
+    display: inline-flex;
+}
+
+#cotizacionesBody{
+    font-size: 50px;
+    display: inline-flex;
+}
+
+#acumuladoBody{
+    border-right: 4px;
+    display: inline-flex;
+}
+
+#acumuladoBody p{
+    font-size: 20px;
+}
+
+#acumuladoBody #acumuladoBodyCol{
+    border-right-style: solid;
+    border-right-width: 1px;
+}
+
+#facturacionBodyID{
+    border-right-style: solid;
+    border-right-width: 1px;
+}
+
+
+#pedidosBody p{
+    font-size: 20px;
+}
+
+#cotizacionesBody p{
+    font-size: 20px;
+}
+
+#pedidosIcon i{
+    color: #C38D9E;
+}
+
+#cotizacionesIcon i{
+    color: #E27D60;
+}
+
+.col h6{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+#ventaAnualID p{
+    font-size: 22px;
+}
+
+#metaAnualID p{
+    font-size: 14px;
+}
+
+#devolucionesPorcentajeID p{
+    font-size: 14px;
+}
+
+#devolucionesBodyID{
+    color: #41B3A3;
+}
+
+#cumplimientoBodyID{
+    color: #41B3A3;
+}
+
+#vendorName{
+    padding: 0px;
+    text-transform: capitalize;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    margin-bottom: 0px;
+    display: inline;
+    padding-right: 5px;
+}
+
+#vendorIcon{
+    font-size: 20px;
+}
+
+#vendorNameDiv{
+    padding-top: 18px;
+
+}
+
+#vendorNameCard{
+    border: 0px;
+    margin: 0px;
+    padding: 0px;
+    background-color: #141414;
+}
+
+nav .container-fluid{
+    text-align: right;
+}
