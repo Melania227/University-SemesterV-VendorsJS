@@ -7,12 +7,40 @@ const rootRef = database.ref('/');
 /* WORKING WITH JSON INFORMATION */
 
 $(document).ready(function(){
-  //datatablePropierties();
+  getData();
 });
 
-let jsonData = [];
 
-// se agrega el listener al botón remove
+/* ---------------------------------------------------------- PROMESA ------------------------------------------------------------- */
+function getDataPromise(){
+	return new Promise((resolve, reject)=>{
+
+    rootRef.on('value',(snap)=>{
+      resolve (snap.val());
+    });
+        
+  });
+}
+
+let jsonData = [];
+async function getData(){
+  await getDataPromise()
+  .then(
+        json=>{
+          jsonData=json;
+          showData ();
+        }
+  )
+  .catch(error=>{console.log(error)});
+}
+
+/* function getData (){
+  rootRef.on('value',(snap)=>{
+    jsonData = snap.val();
+  });
+} */
+
+
 function showData (){
   
   let htmlTable = '';
@@ -35,12 +63,6 @@ function showData (){
   /* $('#vendedorTableBodyID').html = htmlTable; */
 }
 
-function getData (){
-  rootRef.on('value',(snap)=>{
-    jsonData = snap.val();
-    console.log(jsonData);
-  });
-}
 
 function datatablePropierties(){
   $('#vendedorTableID').DataTable({
@@ -56,9 +78,10 @@ function datatablePropierties(){
         "next": "Siguiente",
         "last": "Ultimo"
       },
-      "info": "Mostrando página _PAGE_ de _PAGES_",
+      "info": "Mostrando vendedores del _START_ al _END_ de _TOTAL_ disponibles",
       "infoEmpty": "No hay datos",
-      "emptyTable": "No hay datos por el momento"
+      "emptyTable": "No hay datos por el momento",
+      "lengthMenu": "Mostrando _MENU_ entradas"
     }
   });
 }

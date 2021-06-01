@@ -53,26 +53,23 @@
     </head>
     <body>
         <nav class="navbar shadow p-3 mb-5">
-            <a class="navbar-brand" href=""><i class="fas fa-chart-line"></i> DASHBOARD </a>
             <div class="container-fluid">
-                    <div class="col-lg-12" >
-                        <div class="card" id="vendorNameCard">
-                            <div class="card-body" id="vendorName">
-                                
-                            </div>
-                        </div>
+                <a class="navbar-brand" href=""><i class="fas fa-chart-line"></i> DASHBOARD </a>
+                    <div id="vendorNameDiv">
+                        <p id="vendorName"></p>
+                        <i class="fas fa-user" id="vendorIcon"></i>
                     </div>
             </div>
         </nav>
 
         
         <div class="container-fluid">
-            <div class="row border">
-                <div class="col-lg-6 border" >
+            <div class="row">
+                <div class="col-lg-6" >
                     <div class="card text-center shadow">
                         <div class="card-header bg-light">
                             <h4 class="card-title">Cumplimiento de ventas</h4>
-                            <div class="actualMoneyData" id="actualMoneyData">
+                            <div class="row" id="actualMoneyData">
 
                             </div>
                         </div>
@@ -81,7 +78,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 border">
+                <div class="col-lg-3">
                     <div class="card text-center shadow">
                         <div class="card-header">
                             <h4 class="card-title">Cumplimiento</h4>
@@ -91,7 +88,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 border">
+                <div class="col-lg-3">
                     <div class="card text-center shadow">
                         <div class="card-header">
                             <h4 class="card-title">Proyectado</h4>
@@ -105,8 +102,8 @@
                     </div>
                 </div>
             </div>
-            <div class="row border">
-                <div class="col-lg-6 border">
+            <div class="row">
+                <div class="col-lg-6">
                     <div class="card text-center shadow">
                         <div class="card-header">
                             <h4 class="card-title">Pedidos abiertos</h4>
@@ -122,7 +119,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6 border">
+                <div class="col-lg-6">
                     <div class="card text-center shadow">
                         <div class="card-header">
                             <h4 class="card-title">Cotizaciones abiertas</h4>
@@ -138,8 +135,8 @@
                     </div>
                 </div>
             </div>
-            <div class="row border">
-                <div class="col-lg-6 border" >
+            <div class="row">
+                <div class="col-lg-6" >
                     <div class="card text-center shadow">
                         <div class="card-header">
                             <h4 class="card-title">Acumulado anual</h4>
@@ -163,7 +160,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6 border" >
+                <div class="col-lg-6" >
                     <div class="card text-center shadow">
                         <div class="card-header">
                             <h4 class="card-title">Ventas vs. Devoluciones</h4>
@@ -173,7 +170,13 @@
                                 
                             </div>
                             <div class="col" id="devolucionesBodyID">
-                                
+                                <h6>Devoluciones</h6>
+                                <div id="devolucionesID">
+
+                                </div>
+                                <div id="devolucionesPorcentajeID">
+
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -181,14 +184,6 @@
             </div>
         </div>
 
-        <div class="container-fluid">
-            <button class="btn btn-success m-5" onclick="getData()">
-                GET DATA
-            </button>
-            <button class="btn btn-danger m-5" onclick="showData()">
-                SHOW DATA
-            </button>
-        </div>
 
         <!-- DMR: js donde está la funcionalidad ADD, REMOVE, UPDATE-->
         <script src="js/dashboard.js"></script>
