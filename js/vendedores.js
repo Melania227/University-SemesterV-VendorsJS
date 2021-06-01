@@ -78,9 +78,10 @@ function datatablePropierties(){
         "next": "Siguiente",
         "last": "Ultimo"
       },
-      "info": "Mostrando página _PAGE_ de _PAGES_",
+      "info": "Mostrando vendedores del _START_ al _END_ de _TOTAL_ disponibles",
       "infoEmpty": "No hay datos",
-      "emptyTable": "No hay datos por el momento"
+      "emptyTable": "No hay datos por el momento",
+      "lengthMenu": "Mostrando _MENU_ entradas"
     }
   });
 }

@@ -3,24 +3,23 @@
 }
 
 .navbar a{
-    font-size: 70px;
+    font-size: 40px;
     color: #41B3A3;
     font-weight: bold;
 }
 
 .navbar i{
-    font-size: 110px;
+    font-size: 60px;
     color: #41B3A3;
-    margin-right: 10px;
 }
 
 .navbar a:hover{
     color: #41B3A3;
 }
 
-.navbar-brand{
-    padding-left: 12px;
-}
+/* .navbar-brand{
+    padding-left: 10px;
+} */
 
 .card{
     margin: 10px;
@@ -111,9 +110,6 @@
 
 #vendorName{
     padding: 0px;
-}
-
-#vendorName p{
     text-transform: capitalize;
     color: white;
     font-weight: bold;
@@ -123,15 +119,20 @@
     padding-right: 5px;
 }
 
+#vendorIcon{
+    font-size: 20px;
+}
+
+#vendorNameDiv{
+    padding-top: 18px;
+
+}
+
 #vendorNameCard{
     border: 0px;
     margin: 0px;
     padding: 0px;
     background-color: #141414;
-}
-
-#vendorNameCard i{
-    font-size: 20px;
 }
 
 nav .container-fluid{

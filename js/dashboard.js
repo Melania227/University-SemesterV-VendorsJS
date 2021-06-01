@@ -143,9 +143,9 @@ function displayActualMoney(infoUser){
   let venta = newFormat.format(infoUser.infoResult.data[0].sale);
   let diferencia = newFormat.format(infoUser.infoResult.data[0].sale-infoUser.infoResult.data[0].budget);
   let strHTML = '';
-  strHTML+='<p>Venta actual <br>' + venta + '</p>';
-  strHTML+='<p>Meta actual <br>' + meta + '</p>';
-  strHTML+='<p>Diferencia <br>' + diferencia + '</p>';
+  strHTML+='<div class="col-lg-4"><p>Venta actual <br>' + venta + '</p></div>';
+  strHTML+='<div class="col-lg-4"><p>Meta actual <br>' + meta + '</p></div>';
+  strHTML+='<div class="col-lg-4"><p>Diferencia <br>' + diferencia + '</p></div>';
   document.getElementById('actualMoneyData').innerHTML=strHTML;
 }
 
@@ -236,7 +236,7 @@ function displayVentasVSDevoluciones(userInfo){
 /*--------------------------------------- DISPLAY VENDOR NAME ---------------------------------------*/
 function displayVendorName(vendorName){
   vendorName=vendorName.toLowerCase();
-  strHTML='<p>'+ vendorName +'</p> <i class="fas fa-user"></i>';
+  strHTML=vendorName;
   document.getElementById('vendorName').innerHTML=strHTML;
 }
 
